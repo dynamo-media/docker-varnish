@@ -12,7 +12,8 @@ COPY start.sh /usr/local/bin/start
 CMD ["start"]
 
 RUN \
-  useradd -r -s /bin/false varnishd
+  chmod +x /usr/local/bin/start \
+  && useradd -r -s /bin/false varnishd
 
 # Install Varnish source build dependencies.
 RUN apt-get update && apt-get install -y --no-install-recommends \
