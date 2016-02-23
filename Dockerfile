@@ -20,7 +20,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     ca-certificates \
     curl \
-    libvarnish-dev\
     libedit-dev \
     libjemalloc-dev \
     libncurses-dev \
