@@ -44,8 +44,7 @@ RUN \
   curl -sfL http://geolite.maxmind.com/download/geoip/database/GeoLiteCountry/GeoIP.dat.gz -o GeoIP.dat.gz && \
   gzip -d GeoIP.dat.gz && \
   mkdir -p /usr/share/GeoIP && \
-  mv -f GeoIP.dat /usr/share/GeoIP/ && \
-  rm GeoIP*
+  mv -f GeoIP.dat /usr/share/GeoIP/
 
 RUN mkdir -p /usr/local/src && \
   cd /usr/local/src && \
