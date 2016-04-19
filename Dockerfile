@@ -30,7 +30,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     python-docutils \
     libgeoip-dev \
     libmhash-dev \
-    vim \
     rsyslog \
     python-pip \
     python-dev \
@@ -39,6 +38,14 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libmicrohttpd-dev \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
+  
+# Download GeoIP country code data file
+RUN \
+  curl -sfL http://geolite.maxmind.com/download/geoip/database/GeoLiteCountry/GeoIP.dat.gz -o GeoIP.dat.gz && \
+  gzip -d GeoIP.dat.gz && \
+  mkdir -p /usr/share/GeoIP && \
+  mv -f GeoIP.dat /usr/share/GeoIP/ && \
+  rm GeoIP*
 
 RUN mkdir -p /usr/local/src && \
   cd /usr/local/src && \
