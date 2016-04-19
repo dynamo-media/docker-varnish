@@ -151,5 +151,6 @@ RUN \
   cd vagent2-master && \
   ./autogen.sh && \
   ./configure && \
+  make CFLAGS="-Wall -Wextra -Werror" && \
   make install && \
   rm -rf ../vagent* ../master.tar.gz
